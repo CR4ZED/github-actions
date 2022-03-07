@@ -20,6 +20,5 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 14
-      - name: Running Test cases
       - run: npm install
       - run: npm test
