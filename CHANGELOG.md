@@ -1,4 +1,13 @@
-# 1.1.0 (2022-12-06)
+# [1.2.0](https://github.com/CR4ZED/github-actions/compare/v1.1.0...v1.2.0) (2022-12-06)
+
+
+### Features
+
+* added a new feature ([e6c4737](https://github.com/CR4ZED/github-actions/commit/e6c47379ad102ce9024a9a09ba0488e81a79979a))
+
+
+
+# [1.1.0](https://github.com/CR4ZED/github-actions/compare/03e952a6f83bffde498f1d0034ce337e0982d21c...v1.1.0) (2022-12-06)
 
 
 ### Features
