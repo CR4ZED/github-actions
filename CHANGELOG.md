@@ -1,3 +1,12 @@
+## [1.2.1](https://github.com/CR4ZED/github-actions/compare/v1.2.0...v1.2.1) (2022-12-06)
+
+
+### Bug Fixes
+
+* test cases for feat2 ([3df404e](https://github.com/CR4ZED/github-actions/commit/3df404ee59b5c206be792a9d77def579b53aa230))
+
+
+
 # [1.2.0](https://github.com/CR4ZED/github-actions/compare/v1.1.0...v1.2.0) (2022-12-06)
 
 
