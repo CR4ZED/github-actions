@@ -1,26 +1,17 @@
-# name: learn-github-actions
-# on: [push]
-# jobs:
-#   check-bats-version:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2
-#       - uses: actions/setup-node@v2
-#         with:
-#           node-version: 14
-#       - run: npm install -g bats
-#       - run: bats -v
-name: run-test-cases
-on: [push, pull_request]
+name: Echo Branch Name
+
+on:
+  push:
+    branches:
+      - '*'
+
 jobs:
-  branch-name:
+  echo-branch:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Get branch names.
-        id: branch-names
-        uses: tj-actions/branch-names@v8
-        
-      - name: Current branch names
-        run: |
-          echo "${{ steps.branch-names.outputs.current_branch }}"
-    
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Echo Branch Name
+      run: echo "The current branch is ${{ github.ref }}"
