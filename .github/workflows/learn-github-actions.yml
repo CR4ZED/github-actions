@@ -1,10 +1,27 @@
-name: run-test-cases
-on: [push, pull_request]
+name: Echo Branch Name
+
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - '*'
+
 jobs:
-  branch-name:
+  echo-branch-name:
     runs-on: ubuntu-latest
+
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Current branch names
-        run: echo "Source branch is ${{ github.event.pull_request.head.ref }}"
-
+    - name: Determine Branch Name
+      run: |
+        if [ -n "${GITHUB_HEAD_REF}" ]; then
+          # This is a pull request event
+          echo "Branch name is ${GITHUB_HEAD_REF}"
+        else
+          # This is a push event
+          echo "Branch name is ${GITHUB_REF/refs\/heads\//}"
+        fi
