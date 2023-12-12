@@ -1,24 +1,27 @@
-# name: learn-github-actions
-# on: [push]
-# jobs:
-#   check-bats-version:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2
-#       - uses: actions/setup-node@v2
-#         with:
-#           node-version: 14
-#       - run: npm install -g bats
-#       - run: bats -v
-name: run-test-cases
-on: [push, pull_request]
+name: Echo Branch Name
+
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - '*'
+
 jobs:
-  test:
+  echo-branch-name:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 14
-      - run: npm install
-      - run: npm test
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Determine Branch Name
+      run: |
+        if [ -n "${GITHUB_HEAD_REF}" ]; then
+          # This is a pull request event
+          echo "Branch name is ${GITHUB_HEAD_REF}"
+        else
+          # This is a push event
+          echo "Branch name is ${GITHUB_REF/refs\/heads\//}"
+        fi
