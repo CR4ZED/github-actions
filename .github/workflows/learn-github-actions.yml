@@ -1,17 +1,13 @@
-name: Echo Branch Name
-
-on:
-  push:
-    branches:
-      - '*'
-
+name: run-test-cases
+on: [push, pull_request]
 jobs:
-  echo-branch:
+  branch-name:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Get branch names.
+        id: branch-names
+        uses: tj-actions/branch-names@v8
 
-    - name: Echo Branch Name
-      run: echo "The current branch is ${{ github.ref_name }}"
+      - name: Current branch names
+        run: |
+          echo "${{ steps.branch-names.outputs.current_branch }}"
