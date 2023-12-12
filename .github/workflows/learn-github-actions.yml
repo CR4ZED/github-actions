@@ -4,10 +4,8 @@ jobs:
   branch-name:
     runs-on: ubuntu-latest
     steps:
-      - name: Get branch names.
-        id: branch-names
-        uses: tj-actions/branch-names@v8
 
       - name: Current branch names
         run: |
-          echo "${{ steps.branch-names.outputs.current_branch }}"
+          echo "${{ env.GITHUB_REF }}"
+          echo "${{ env.GITHUB_HEAD_REF }}"
