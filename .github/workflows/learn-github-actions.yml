@@ -13,12 +13,15 @@
 name: run-test-cases
 on: [push, pull_request]
 jobs:
-  test:
+  branch-name:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 14
-      - run: npm install
-      - run: npm test
+      - name: Get branch names.
+        id: branch-names
+        uses: tj-actions/branch-names@v8
+        
+      - name: Running on the default branch.
+        if: steps.branch-names.outputs.is_default == 'true'
+        run: |
+          echo "Running on default: ${{ steps.branch-names.outputs.current_branch }}" 
+    
