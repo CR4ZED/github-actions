@@ -20,7 +20,6 @@ jobs:
         id: branch-names
         uses: tj-actions/branch-names@v8
         
-      - name: Running on the default branch.
-        run: |
-          echo "Running on default: ${{ steps.branch-names.outputs.current_branch }}" 
+      - name: Current branch names
+        run: echo "${{ steps.branch-names.outputs.current_branch }}"
     
