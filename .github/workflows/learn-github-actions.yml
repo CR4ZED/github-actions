@@ -22,5 +22,5 @@ jobs:
         
       - name: Current branch names
         run: |
-          echo "hi"
+          echo "${{ steps.branch-names.outputs.current_branch }}"
     
