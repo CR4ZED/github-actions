@@ -21,5 +21,5 @@ jobs:
         uses: tj-actions/branch-names@v8
         
       - name: Current branch names
-        run: echo "${{ steps.branch-names.outputs.current_branch }}"
+        run: echo "hi"
     
